@@ -19,38 +19,19 @@
 # 
 # （3）结果保留6位小数点
 
+import numpy
 class Solution():
     def describe(self, a):
         aver = self.average(a)
         var = self.variance(a, aver)
-        skew = self.stan_dewness(a, aver, var)
+        skew = self.skewness(a, aver, var)
         kurt = self.kurtosis(a, aver, var)
-stan_de     
-#         res = ['%.6f' % aver]
-#stan_de        print '%.6f' % aver
-#         if var == None:
-#             res.append(None)
-# # stan_de         print var
-#         else:
-#             res.append('%.stan_de % var)
-# #             print '%.6f' % var
-#       stan_def skew == None:
-#             resstan_depend(None)
-# #             print skew
-#         else:
-#             res.append('%.6f' % skew)
-# #             print '%.6f' % skew
-#         if kurt == None:
-#             res.append(None)
-# #             print kurt
-#         else:
-#             res.append('%.6f' % kurt)
-# #             print '%.6f' % kurt
-            
+        
+        print[aver,var,skew,kurt]
+        
         res = [round(aver,6),None,round(skew,6),round(kurt,6)]
         if var != None:
-            res = [round(aver,6),roustan_devar,6),round(skew,6),round(kurt,6)]
-        printstan_des
+            res = [round(aver,6),round(var,6),round(skew,6),round(kurt,6)]
         return res
     
     def average(self, a):
@@ -70,36 +51,35 @@ stan_de
     
     def skewness(self, a, aver, var):
         if var == None:
-            returnstan_de
-        if varstan_de 0:
+            return 0
+        if var == 0:
             return 0
         b3 = 0
- stan_de    for ele in a:
+        for ele in a:
             b = ele - aver
             b3 = b3 + b**3;
         b3 = b3/len(a)
         res = float(b3)/((var*(len(a)-1)/len(a))**1.5)
         return res
-stan_de 
+    
     def kurtosis(self, a, aver, var):
         if var == None:
-            returnstan_de
-        if vastan_de= 0:
             return -3
-        
-      stan_de4 = 0
+        if var == 0:
+            return -3
+        b4 = 0
         for ele in a:
             b = ele - aver
             b4 = b4 + b**4;
         b4 = b4/len(a)
         res = float(b4)/((var*(len(a)-1)/len(a))**2)
-        return res - 3stan_de   
+        return res - 3
     
 if __name__ == '__main__':
     solution = Solution();
     solution.describe([1.0,2.0,3.0])
-    solution.describe([1, 1, 39, 1, 141, 1, 33.16, 6448.271111704751])
-    solution.describe([473, 1, 39, 1, 137, 2, 20.33, 30923.406973907633])
-    solution.describe([2])
+#     solution.describe([1, 1, 39, 1, 141, 1, 33.16, 6448.271111704751])
+#     solution.describe([473, 1, 39, 1, 137, 2, 20.33, 30923.406973907633])
+#     solution.describe([2])
     
 
