@@ -27,7 +27,7 @@ class Solution():
             return [None,None]
         r = (n*self.proSum(x, y)-self.summary(x)*self.summary(y))/(((n*self.squareSum(x)-self.summary(x)**2)*(n*self.squareSum(y)-self.summary(y)**2))**0.5)
         t = r*(float(n-2)/(1-r**2))**0.5
-        p = 2*T.sf(t, n-2)
+        p = 2*T.sf(abs(t), n-2)
         return [round(r,6),round(p,6)]
     def mean(self, x):
         sum = self.summary(x);
