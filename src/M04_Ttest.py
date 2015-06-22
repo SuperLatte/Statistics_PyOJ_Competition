@@ -24,7 +24,7 @@ class Solution():
         mean = self.mean(a)
         
         t = (mean-popmean)/(self.stan_de(a, mean)/(n**0.5))
-        p = 2-2*T.sf(t,n-1)
+        p = 2*T.sf(abs(t),n-1)
         return [round(t,6),round(p,6)]
     
     def stan_de(self, x, mean):
