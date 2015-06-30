@@ -20,17 +20,29 @@
 # （2）不能使用scipy.integrate库
 
 import math
+import random
+# class Solution:
+#       
+#     def solve(self,a,b):
+#         n = 100000
+#         l = (float(b)-float(a))/n
+#         m = 0
+#         y = lambda x: (math.exp(-x*x/2))/math.sqrt(2*math.pi)
+#         for i in range(n) :
+#             m = m + l*y(a+l*i)
+#         return m
+
 class Solution:
-    
+       
     def solve(self,a,b):
-        n = 100000
-        l = (float(b)-float(a))/n
+        n = 1000000
         m = 0
         y = lambda x: (math.exp(-x*x/2))/math.sqrt(2*math.pi)
-        for i in range(n) :
-            m = m + l*y(a+l*i)
-        return m
+        for i in range(n):
+            if random.uniform(0,1) <= y(random.uniform(a,b)):
+                m += 1
+        return float(m)/n*(b-a)
    
 if __name__ == '__main__':
     solution = Solution();
-    print solution.solve(1,2)
+    print solution.solve(1,2.5)

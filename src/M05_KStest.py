@@ -38,4 +38,4 @@ class Solution():
 
 if __name__ == '__main__':
     solution = Solution()
-    print solution.ks_2samp([1.1,2.3,3.5],[2.6,2.7,3.8,4.9])
+    print solution.ks_2samp([1,2,3],[2,2,2])
